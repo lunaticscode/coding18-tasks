@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>[1week-Javascript] HTML+JS 이벤트</title>
+  </head>
+  <body>
+    <div>브라우저 검사도구에서 Console 탭을 확인해주세요.</div>
+    <br /><br /><br />
+    <!-- 버튼 클릭 시, javascript 기능인 alert를 호출한다. -->
+    <button onclick="alert('Click Button ~ !')">Button-1</button>
+    <!-- 키보드 입력 시, javascript 기능인 console.log 호출한다. -->
+    <input onkeydown="console.log('Keydown Input ~ !')" />
+
+    <br /><br /><br />
+
+    <button id="button2">Button-2</button>
+    <input id="input2" />
+
+    <!-- 바디 내부의 html 태그들에 Javascript 연결 -->
+    <!-- (* 바디 내부에서 script를 쓸때는 가장 하단에 작성.) -->
+    <script>
+      // id=button2 인 태그를 button2Element 변수로 할당한다.
+      const button2Element = document.getElementById("button2");
+      // button2Element에 'click' 이벤트를 감지하게 한다.
+      button2Element.addEventListener("click", function () {
+        console.log("clicked button2");
+      });
+
+      const input2Element = document.getElementById("input2");
+      input2Element.addEventListener("keydown", function (e) {
+        const inputValue = e.target.value;
+        console.log(inputValue);
+      });
+    </script>
+  </body>
+</html>

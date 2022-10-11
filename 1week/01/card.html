@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+  <!-- head :: 레이아웃에 나타나지 않는 요소들을 넣는다. <meta>, <title>, <link>, <script> 등 -->
+  <head>
+    <meta charset="utf-8" />
+    <title>[1week-HTML/CSS] Card 레이아웃</title>
+    <!-- meta :: 현재 html 문서의 메타데이터 나열 -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <!-- link :: 현재 파일 위치 기준으로 외부 파일과의 관계 표시 (ex. CSS 파일 불러오기) -->
+    <link rel="stylesheet" href="./card.css" type="text/css" />
+    <!-- script :: 현재 파일 위치 기준으로 외부 javascript 소스 관계 표시 (ex. jQuery 소스 url) -->
+    <script></script>
+    <!-- style :: body 태그 내부에 쓰일 style 코드 -->
+  </head>
+
+  <!-- body :: 레이아웃에 실제로 그려질 요소들을 넣는다. <div>, <span>, <ul>, <li>, <section>, <main>, <header>, <footer> 등  -->
+  <body>
+    <div class="card" id="black" onclick="alert('Black')">
+      This is Black Card
+    </div>
+    <div class="card" id="blue" onclick="alert('Blue')">This is Blue Card</div>
+    <div class="card" id="red" onclick="alert('Red')">This is Red Card</div>
+    <div class="card" id="green" onclick="alert('Green')">
+      This is Green Card
+    </div>
+    <div>
+      <div class="card inline">card1</div>
+      <div class="card inline">card2</div>
+      <div class="card inline">card3</div>
+    </div>
+  </body>
+</html>

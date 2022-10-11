@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>[2week-jQuery] jQuery를 이용한 반응형 레이아웃</title>
+    <link rel="stylesheet" href="./resize.css" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div id="width-noti"></div>
+    <div id="test-layout"></div>
+    <script>
+      /*
+        주요 프로세스
+        1) $을 이용해서 window에 창 크기를 감지할 수 있는 resize 메서드 연결
+        2) resize 감지 시, function()을 통해 html 태그 조작 
+      */
+      $(window).resize(function () {
+        console.log("asd");
+        const width = $(window).width();
+        $("#width-noti").html(`width: ${width}px`);
+        if (width >= 1000) {
+          $("#test-layout").css("background-color", "green");
+        }
+        if (width >= 500 && width < 1000) {
+          $("#test-layout").css("background-color", "red");
+        }
+        if (width < 500) {
+          $("#test-layout").css("background-color", "blue");
+        }
+      });
+    </script>
+  </body>
+</html>

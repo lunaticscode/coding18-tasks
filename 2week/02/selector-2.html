@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>[2week-jQuery] Selector(2)</title>
+    <link rel="stylesheet" href="./selector-2.css" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <section id="login-layout-wrapper">
+      <div class="input-wrapper">
+        <input class="user-input" id="input-id" type="text" />
+      </div>
+      <div class="input-wrapper">
+        <input class="user-input" id="input-pw" type="password" />
+      </div>
+      <button id="login-button">Login</button>
+    </section>
+    <script>
+      /*
+        주요 프로세스
+        - Input (#input-id, #input-pw)
+        1) keyup 키보드 이벤트를 연결
+        2) 이벤트 감지 시, function() 을 통해 input 글자수 파악
+        3) 조건문을 통해 해당 input 태그 조작
+
+        - Button (#login-button)
+        1) click 마우스 이벤트를 연결
+        2) 이벤트 감지 시, function() 을 통해 input 글자수 파악
+        3) 조건문을 통해 로그인 성공여부 alert 
+      */
+
+      $("#input-id").keyup(function () {
+        const id = $("#input-id").val();
+        if (!id || id.length === 0) {
+          $("#input-id").css("border-bottom", "2px solid silver");
+          return;
+        }
+        if (id.length < 5) {
+          $("#input-id").css("border-bottom", "2px solid red");
+          return;
+        }
+        if (id.length >= 5) {
+          $("#input-id").css("border-bottom", "2px solid skyblue");
+          return;
+        }
+      });
+
+      $("#input-pw").keyup(function () {
+        const id = $("#input-pw").val();
+        if (!id || id.length === 0) {
+          $("#input-pw").css("border-bottom", "2px solid silver");
+          return;
+        }
+        if (id.length < 8) {
+          $("#input-pw").css("border-bottom", "2px solid red");
+          return;
+        }
+        if (id.length >= 8) {
+          $("#input-pw").css("border-bottom", "2px solid skyblue");
+          return;
+        }
+      });
+
+      $("#login-button").click(function () {
+        const id = $("#input-id").val();
+        const pw = $("#input-pw").val();
+        console.log(id, pw);
+        if (id.length < 5) {
+          alert("(!) 아이디는 5자 이상 입력해야 합나디.");
+          return;
+        }
+        if (pw.length < 8) {
+          alert("(!) 비밀번호는 8자 이상 입력해야 합나디.");
+          return;
+        }
+        alert("로그인 성공");
+      });
+    </script>
+  </body>
+</html>

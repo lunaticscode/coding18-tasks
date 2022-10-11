@@ -1,0 +1,8 @@
+START_INPUT_SELECTOR = "#start"
+END_INPUT_SELECTOR = "#get"
+SELECT_MONTH_SELECTOR = "#s_month"
+SELECT_DAY_SELECTOR = "#s_day"
+SELECT_HOUR_SELECTOR = "#s_hour"
+SUBMIT_BUTTON_SELECTOR = "#center > form > div > p"
+TIME_TABLE_SELECTOR = "#tableResult"
+TABLE_NEXT_BUTTON = "#divResult > table.btn > tbody > tr > td > a"

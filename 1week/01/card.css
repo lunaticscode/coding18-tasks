@@ -1,0 +1,33 @@
+/* class="card" */
+.card {
+  width: 200px;
+  height: 80px;
+  text-align: center; /* 텍스트 중앙 정렬 */
+  line-height: 80px; /* height와 같은 값을 입력할 경우, 내부 컨텐츠가 수직 기준으로 중앙 배치 */
+  color: white;
+  border: 1px solid black; /* {굵기} {모양} {색깔} */
+  border-radius: 5px;
+  margin-bottom: 10px; /* margin :: 태그 사이의 간격 */
+  background-color: silver;
+}
+/* class="card inline" */
+.card.inline {
+  display: inline-block;
+  background-color: black;
+}
+/* id="black" */
+#black {
+  background-color: black;
+}
+/* id="blue" */
+#blue {
+  background-color: blue;
+}
+/* id="red" */
+#red {
+  background-color: red;
+}
+/* id="green" */
+#green {
+  background-color: green;
+}

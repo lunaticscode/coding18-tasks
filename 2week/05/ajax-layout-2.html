@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>[2week-jQuery] AJAX http 통신을 통한 HTML 태그 조작</title>
+    <link rel="stylesheet" href="./ajax-layout-2.css" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <button onclick="createUserOne()" id="create-user-button">
+      Create User
+    </button>
+    <br /><br />
+    <div id="load-status" style="display: none">데이터를 받아오는 중.....</div>
+    <br /><br />
+    <div id="user-list"></div>
+    <script>
+      /*
+        주요 프로세스
+        1) [Create Use] 버튼에 onclick 이벤트를 생성(=> createUserOne)
+        2) 클릭 후에 데이터 $.ajax를 통해 요청
+        3) 결과값을 then()을 통해서 받음
+      */
+      function createUserOne() {
+        $("#load-status").show();
+
+        $.ajax({
+          type: "get",
+          url: "https://vercel-express-7e3k6o7aj-lunaticscode.vercel.app/user",
+        }).then(function (res) {
+          console.log(res);
+
+          $("#load-status").hide();
+
+          const userElement = `
+            <div class='user-box'>
+                ${JSON.stringify(res.result, null, "<br/>")}
+            </div>
+          `;
+          $("#user-list").append(userElement);
+        });
+      }
+    </script>
+  </body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>[2week-jQuery] jQuery를 이용한 반응형 레이아웃</title>
+    <link rel="stylesheet" href="./ajax-layout-1.css" type="text/css" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <button onclick="getImage()">Get Image</button>
+    <div id="photo-wrapper">
+      <div id="title"></div>
+      <img id="photo" />
+    </div>
+    <script>
+      /*
+        주요 프로세스
+          1) [Get Image] 버튼 클릭 시, getImage() 함수 호출
+          2) $.ajax를 통해 오픈 api 호출
+          3) then()을 통해서 호출한 api의 결과값을 가져옴
+          4) 가져온 결과값을 활용해서 #title, #photo 내부에 데이터 삽입 
+      */
+      function getImage() {
+        $.ajax({ url: "https://jsonplaceholder.typicode.com/photos/1" }).then(
+          function (res) {
+            console.log(res);
+            const title = res.title;
+            const imgUrl = res.url;
+            $("#title").text(title);
+            $("#photo").attr("src", imgUrl);
+          }
+        );
+      }
+    </script>
+  </body>
+</html>
