@@ -7,7 +7,7 @@ from bs4 import BeautifulSoup
 
 target_url = "https://www.letskorail.com/ebizprd/EbizPrdTicketpr21100W_pr21110.do"
 driver = ud.make_web_driver()
-driver.get(target_url)
+driver.get(target_url) # 자동화 브라우저에 target_url을 적용해서 가동시킨다.
 
 # 혹시나 팝업창이 생성됬다면 종료하기 위한 코드
 try:
@@ -51,5 +51,3 @@ for row in time_table_row_elems:
     print(f'출발 시간 {start_time} / 도착 시간 {end_time} / {train_name}')
 
 time.sleep(5)
-
-

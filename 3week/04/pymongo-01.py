@@ -44,8 +44,8 @@ def get_users():
         print(f'(!)DB Error {err}')
         return False
 
-# user_list = get_users()
-# print(user_list)
+user_list = get_users()
+print(user_list)
 # ==================================#
 
 

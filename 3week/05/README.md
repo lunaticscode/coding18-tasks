@@ -1,9 +1,18 @@
-1. 환경설정 및 라이브러리 설치
+## 프로젝트 환경설정
 
-- $ cd 현재 프로젝트 폴더
-- $ pipenv install
+```bash
+$ cd 현재 프로젝트 폴더
+$ pipenv install
+```
 
-2. 프로젝트 실행
+## 프로젝트 실행
 
-- $ pipenv shell
-- $ python3 pymongo-2.py (or) python pymongo-2.py
+```bash
+$ pipenv shell
+$ python3 pymongo-2.py (or) python pymongo-2.py
+```
+
+## 과제 목표
+
+- BeautifulSoup을 통한 스크래핑 데이터를 DB에 저장
+- 저장된 데이터에 조건을 걸어서 검색
