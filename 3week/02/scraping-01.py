@@ -7,7 +7,7 @@ soup = BeautifulSoup(response.text, "html.parser") # BeautifulSoup 이 html 방�
 
 article_list = soup.select("div._11vv8ke2") # <div class='._11vv8ke2' ... > 인 태그들을 전부 가져온다.
 for job in article_list: # 가져온 <<div class='._11vv8ke2'>의 개수만큼 반복문 실행.
-    title = job.select_one("div.w7pzr91").text
-    location = job.select_one("div.w7pzr92").text
-    price = job.select_one("div.w7pzr93").text
+    title = job.select_one("div.w7pzr93").text
+    location = job.select_one("div.w7pzr94").text
+    price = job.select_one("div.w7pzr95").text
     print(f'[제목] {title}\n[위치] {location}\n[가격] {price}\n\n')
