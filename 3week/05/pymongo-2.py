@@ -20,9 +20,9 @@ def insert_info(info):
 def scraping_realty():
     article_list = soup.select("div._11vv8ke2")
     for job in article_list:
-        title = job.select_one("div.w7pzr91").text
-        location = job.select_one("div.w7pzr92").text
-        price = job.select_one("div.w7pzr93").text
+        title = job.select_one("div.w7pzr93").text
+        location = job.select_one("div.w7pzr94").text
+        price = job.select_one("div.w7pzr95").text
         # print(f'[제목] {title}\n[위치] {location}\n[가격] {price}\n\n')
         
         realty_info = {

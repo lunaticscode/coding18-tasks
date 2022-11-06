@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <script
+      src="https://code.jquery.com/jquery-3.6.1.min.js"
+      integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <div>버튼을 클릭 후, 검사도구의 console 탭을 확인해주세요.</div>
+    <button id="getUserButton">get-user</button>
+    <script>
+      $.ajax({
+        type: "POST", // http 통신 방법 정의 :: data를 실어 보내기 위해서는 post를 사용.
+        url: "http://localhost:5000/getuser", // api 주소 입력
+        data: JSON.stringify({ name: "taylor" }), // 백엔드 서버(Flask)에서 json 형태의 데이터 타입을 받기 위함.
+        dataType: "json",
+        contentType: "application/json", // 결과 값을 json 형태로 해석하기 위함.
+        // api 통신이 성공했을 경우.
+        success: function (result) {
+          console.log(result);
+        },
+        // api 통신이 실패했을 경우.
+        error: function (error) {
+          console.log("(!)API Error 발생\n", error);
+        },
+      });
+    </script>
+  </body>
+</html>

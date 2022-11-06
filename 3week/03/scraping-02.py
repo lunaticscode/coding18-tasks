@@ -38,10 +38,12 @@ except Exception as err:
     print('팝업 안뜸')
 
 time.sleep(5)
+
 page_html = BeautifulSoup(driver.page_source, 'html.parser')
 time_table_elem = page_html.select_one(us.TIME_TABLE_SELECTOR)
 time_table_row_elems = time_table_elem.select("tr")
 time_table_row_elems.pop(0)
+##------------ 직접 코드 작성 ---------##
 for row in time_table_row_elems: 
     train_name = row.select_one("td:nth-child(2)").get("title")
     if train_name == "":
@@ -49,5 +51,5 @@ for row in time_table_row_elems:
     start_time = row.select_one("td:nth-child(3)").text.strip()
     end_time = row.select_one("td:nth-child(4)").text.strip()
     print(f'출발 시간 {start_time} / 도착 시간 {end_time} / {train_name}')
-
+##------------ 직접 코드 작성 ---------##
 time.sleep(5)
