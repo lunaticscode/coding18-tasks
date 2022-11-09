@@ -11,22 +11,39 @@
   <body>
     <div>버튼을 클릭 후, 검사도구의 console 탭을 확인해주세요.</div>
     <button id="getUserButton">get-user</button>
+
+    <!-- /* ------- 직접 작성 부분 ---------- *  -->
+
+    <!-- 유저 등록 화면 새성 -->
+    <!-- 1) 유저의 아이디, 비밀번호를 받을 수 있는 input 태그를 만든다. -->
+    <!-- 2) 유저 등록버튼을 만들고, 이 버튼을 클릭한 경우 ajax를 통해 input에 담겨있던 데이터를 flask로 보낸다. -->
+
+    <!-- /* ------- 직접 작성 부분 ---------- *  -->
     <script>
-      $.ajax({
-        type: "POST", // http 통신 방법 정의 :: data를 실어 보내기 위해서는 post를 사용.
-        url: "http://localhost:5000/getuser", // api 주소 입력
-        data: JSON.stringify({ name: "taylor" }), // 백엔드 서버(Flask)에서 json 형태의 데이터 타입을 받기 위함.
-        dataType: "json",
-        contentType: "application/json", // 결과 값을 json 형태로 해석하기 위함.
-        // api 통신이 성공했을 경우.
-        success: function (result) {
-          console.log(result);
-        },
-        // api 통신이 실패했을 경우.
-        error: function (error) {
-          console.log("(!)API Error 발생\n", error);
-        },
+      $("#getUserButton").click(function () {
+        $.ajax({
+          // HTTP 통신 방법 정의 (GET, POST, PATCH, PUT, DELETE 등)
+          type: "GET",
+          // GET 방식으로 data를 실어 보내기 위해서는 url에 ?{key}={value} 방식(쿼리 스트링)을 사용.
+          url: "http://localhost:5000/user?name=taylor",
+          dataType: "json",
+          contentType: "application/json", // 결과 값을 json 형태로 해석하기 위함.
+          // api 통신이 성공했을 경우.
+          success: function (result) {
+            console.log(result);
+          },
+          // api 통신이 실패했을 경우.
+          error: function (error) {
+            console.log("(!)API Error 발생\n", error);
+          },
+        });
       });
+
+      /* ------- 직접 작성 부분 ---------- *
+       *
+       * 유저 등록버튼 버튼 클릭 이벤트를 ajax를 사용하여 작성해주세요.
+       *
+       * ------- 직접 작성 부분 ---------- */
     </script>
   </body>
 </html>

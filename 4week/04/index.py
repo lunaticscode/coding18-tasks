@@ -6,10 +6,10 @@
 from flask import Flask, render_template, request, jsonify
 from pymongo import errors as pymonogoError
 from db_init import db
-# ------------ 여기는 건드리지 마세요 ------------ #
+################# 여기는 건드리지 마세요 #################
 # mongoDB 컴패스 내부에서 local -> test_paging_data 컬렉션을 확인해보세요.
 collection_name = "test_paging_data"
-# ------------ 여기는 건드리지 마세요 ------------ #
+################# 여기는 건드리지 마세요 #################
 
 app = Flask(__name__)
 
@@ -37,17 +37,17 @@ def show_index_page():
     # ----------- 직접 코드 작성 ------------ #
     return render_template("index.html")
 
-# --------------- 여기는 건드리지 마세요 ---------------- #
+################# 여기는 건드리지 마세요 #################
 def is_exist_dummy_collection(): # 컬렉션 존재여부 화인
     try:
         db.validate_collection(collection_name)
         return True
     except pymonogoError.OperationFailure:
         return False
-# --------------- 여기는 건드리지 마세요 ---------------- #
+################# 여기는 건드리지 마세요 #################
 
 
-# --------------- 여기는 건드리지 마세요 ---------------- #
+################# 여기는 건드리지 마세요 #################
 def insert_dummy_data(): # 페이징 테스트용 데이터 추가
     for idx in range(100):
         user_data = {
@@ -58,12 +58,12 @@ def insert_dummy_data(): # 페이징 테스트용 데이터 추가
             db[collection_name].insert_one(user_data)
         except ValueError as error:
             print(f'(!) DB Error occured ::\n{error}')
-# --------------- 여기는 건드리지 마세요 ---------------- #
+################# 여기는 건드리지 마세요 #################
 
 
 if __name__ == "__main__":
-    # ------------ 여기는 건드리지 마세요 ------------- #
+    ################# 여기는 건드리지 마세요 #################
     if is_exist_dummy_collection() == False:
         insert_dummy_data()
-    # ------------ 여기는 건드리지 마세요 ------------- #
+    ################# 여기는 건드리지 마세요 #################
     app.run()
